@@ -8,11 +8,14 @@ allowed-tools: Read, Bash
 Produce email HTML from specs using MJML. Each module is a self-contained MJML file — no shared layout files between agents.
 
 1. **Plan**
-   - Input: spec file + tokens
+   - Input: design image + spec file + tokens
    - Output: MJML component mapping for the module
+   - DO: view design image first to understand the visual target
    - DO: identify all elements from spec (header, content sections, footer)
    - DO: identify dynamic variables from spec (user names, URLs, dates) → use `{{VariableName}}` pattern
    - DO: map spec Structure to MJML components (mj-section, mj-column, mj-text, mj-image, mj-button, mj-wrapper)
+   - DON'T: start coding before viewing design image and reading spec. Instead, view design image + read spec + tokens first.
+   - WHY DON'T: coding without visual reference causes layout misinterpretation from spec text alone.
    - DON'T: plan raw HTML tables. Instead, plan MJML components only.
    - WHY DON'T: MJML compiles to safe tables automatically. Manual tables miss VML conditionals for Outlook.
    - DON'T: proceed to Code, Compile, or Check in this same invocation. Instead, stop after outputting the plan.

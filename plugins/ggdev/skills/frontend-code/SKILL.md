@@ -8,12 +8,13 @@ allowed-tools: Read
 Produce pixel-perfect HTML module files from spec values and design tokens.
 
 1. **Plan**
-   - Input: spec file + tokens.md + shared.css
+   - Input: design image + spec file + tokens.md + shared.css
    - Output: implementation plan (structure → CSS mapping)
+   - DO: view design image first to understand the visual target
    - DO: read spec Structure section to understand element hierarchy
    - DO: map spec Colors/Typography values to token names from tokens.md
    - DO: identify which CSS variables exist in shared.css
-   - DON'T: start coding before reading all inputs. Instead, read spec + tokens + shared.css first.
+   - DON'T: start coding before reading all inputs. Instead, view design image + read spec + tokens + shared.css first.
    - WHY DON'T: coding without full context causes wrong variable names and missing elements.
    - DON'T: proceed to Code or Check in this same invocation. Instead, stop after outputting the plan.
    - WHY DON'T: each step is a separate invocation. Collapsing steps skips the plan review checkpoint and produces unreviewed output.
@@ -44,11 +45,13 @@ Produce pixel-perfect HTML module files from spec values and design tokens.
    - Input: completed HTML file + original spec
    - Output: pass/fail verification
    - DO: verify every element in spec Structure exists in HTML
+   - DO: verify every text in spec Content table matches HTML output exactly (character-for-character)
    - DO: verify every color uses `var()` matching token name from spec
    - DO: verify spacing matches spec exactly (px precision)
    - DO: verify `<link rel="stylesheet" href="shared.css">` present
    - DO: verify all CSS scoped under `.section-{name}`
    - DO: verify assets from spec used with correct paths
+   - DO: verify every asset file loads (file exists on disk at the path used in HTML)
    - DON'T: skip verification. Instead, check every spec section against output.
    - WHY DON'T: unverified output triggers QA failure → fix loop. Self-check saves a full cycle.
    - DON'T: run Check in the same invocation as Code. Instead, Check is always a separate invocation after Code completes.

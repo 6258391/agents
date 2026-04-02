@@ -54,7 +54,8 @@ Design-to-code pipelines break when one person both analyzes input and coordinat
 13. Skill tool: skill="ggdev:team-management", args="Distribute answer file paths to each agent: specs/{module}-answers.md."
 14. Skill tool: skill="ggdev:team-management", args="Verify spec files exist in specs/ and follow template format. Write verification report to specs/verify-report.md."
 15. If issues found, Skill tool: skill="ggdev:team-management", args="Fix issues with original agents. Report at specs/verify-report.md." Repeat 14-15 until pass or max 3 loops.
-16. Skill tool: skill="ggdev:team-management", args="Cleanup team."
+16. Verify all asset file paths from specs/{module}.md Assets tables exist on disk. If any missing, ask human to provide the files or correct the paths.
+17. Skill tool: skill="ggdev:team-management", args="Cleanup team."
 
 </phase>
 
@@ -62,7 +63,7 @@ Design-to-code pipelines break when one person both analyzes input and coordinat
 
 <if flag="--email">
 1. Skill tool: skill="ggdev:team-management", args="TeamCreate build-email-team."
-2. Skill tool: skill="ggdev:team-management", args="TaskCreate per module: specs/{module}.md specs/tokens.md output/{module}.mjml output/{module}.html"
+2. Skill tool: skill="ggdev:team-management", args="TaskCreate per module: {image-path} specs/{module}.md specs/tokens.md output/{module}.mjml output/{module}.html"
 3. Skill tool: skill="ggdev:team-management", args="Spawn email-developer per module. Spawn frontend-tester (idle)."
 4. Skill tool: skill="ggdev:team-management", args="Assign each module task to its email-developer."
 5. Track which email-developer owns which module. Each module progresses independently. Modules run in parallel; each module has one stage.
@@ -84,7 +85,7 @@ Design-to-code pipelines break when one person both analyzes input and coordinat
 <if flag="no-email">
 1. Read specs/tokens.md. Write output/shared.css: `:root {}` block with one `--{name}: {value};` per token.
 2. Skill tool: skill="ggdev:team-management", args="TeamCreate build-web-team."
-3. Skill tool: skill="ggdev:team-management", args="TaskCreate per module with subject build-{module}: specs/{module}.md specs/tokens.md output/shared.css output/{module}.html assets/"
+3. Skill tool: skill="ggdev:team-management", args="TaskCreate per module with subject build-{module}: {image-path} specs/{module}.md specs/tokens.md output/shared.css output/{module}.html assets/"
 4. Skill tool: skill="ggdev:team-management", args="Spawn frontend-developer per module. Spawn frontend-tester (idle)."
 5. Skill tool: skill="ggdev:team-management", args="Assign each build-{module} task to its frontend-developer."
 6. Track which frontend-developer owns which module. Each module progresses independently through stages. Modules run in parallel; stages within a module run sequentially.

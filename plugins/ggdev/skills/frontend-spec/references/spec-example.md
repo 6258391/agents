@@ -11,6 +11,18 @@ Brief: Full-width section with heading, description, and 3 resource cards in a h
       - Row: Title + Arrow icon
       - Description
 
+## Content
+| Element | Text |
+|---------|------|
+| Heading | Quick Help |
+| Description | Find answers to common questions and helpful resources. |
+| Card 1 title | Getting Started |
+| Card 1 description | Learn the basics and set up your account in minutes. |
+| Card 2 title | Documentation |
+| Card 2 description | Browse our comprehensive guides and API references. |
+| Card 3 title | Community |
+| Card 3 description | Connect with other users and share your experience. |
+
 ## Colors
 | Element | Token | Hex | CSS Property | Opacity |
 |---------|-------|-----|-------------|---------|

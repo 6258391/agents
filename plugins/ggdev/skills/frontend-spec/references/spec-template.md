@@ -4,6 +4,9 @@ Brief:
 
 ## Structure
 
+## Content
+| Element | Text |
+
 ## Colors
 | Element | Token | Hex | CSS Property | Opacity |
 

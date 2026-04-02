@@ -23,6 +23,7 @@ Produces structured spec files from design screenshots with human-confirmed valu
    - DO: ask typography per element (font family, size px, weight, line-height, letter-spacing)
    - DO: ask spacing per element (padding, margin, gap in px)
    - DO: ask layout constraints per element (max-width, min-width if applicable)
+   - DO: ask text content per element (exact copy for every heading, paragraph, button label, link text)
    - DO: ask assets per element (file path or URL for every image, icon, logo)
    - DO: ask borders per element if visible (width, style, color, radius)
    - DO: ask shadows per element if visible (x, y, blur, spread, color)
@@ -38,6 +39,9 @@ Produces structured spec files from design screenshots with human-confirmed valu
    - Output: spec file following template format
    - DO: follow [spec-template.md](references/spec-template.md). See [spec-example.md](references/spec-example.md) for a complete example.
    - DO: fill Token column using token names provided by Lead with confirmed values.
+   - DO: write asset file paths as relative paths from workspace root (e.g., `assets/svg/icon.svg`, `assets/png/hero.png`). List actual files from the assets/ folder in task description.
+   - DON'T: use bare file names without path prefix in Assets table. Instead, use relative paths from workspace root.
+   - WHY DON'T: developer uses asset paths exactly as written in spec. Bare names like `icon.svg` produce broken images because developer doesn't know the folder.
    - DON'T: invent your own format or add sections not in the template. Instead, follow the template exactly.
    - WHY DON'T: build agent expects specific sections and table structure. Custom formats break the build pipeline.
    - DON'T: write the spec if this invocation did not receive confirmed values from Lead as input. Instead, stop and report that confirmed values are missing.

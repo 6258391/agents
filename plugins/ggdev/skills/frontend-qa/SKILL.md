@@ -34,6 +34,6 @@ Screenshot HTML output and compare against design for pixel-perfect verification
    - DO: for each region with color_distance > 10, identify the element and the correct value from spec
    - DO: for regions with color_distance < 3, note as "rendering artifact, not a real issue"
    - DO: map bbox position to spec Structure to identify which element is affected
-   - DO: generate fix instructions: "element X: change property Y from Z to W"
+   - DO: generate fix instructions per element in DO/DON'T/WHY DON'T format: "DO: set Y to W (from spec). DON'T: use Z (current). WHY DON'T: [specific visual mismatch]."
    - DON'T: report rendering artifacts (color_distance < 3) as failures. Instead, note and skip.
    - WHY DON'T: font rendering differs between design tool and browser. Reporting artifacts creates unnecessary fix loops.
