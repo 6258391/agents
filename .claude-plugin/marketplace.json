@@ -1,0 +1,13 @@
+{
+  "name": "agents",
+  "owner": {
+    "name": "Tien Nguyen"
+  },
+  "plugins": [
+    {
+      "name": "ggdev",
+      "source": "./plugins/ggdev",
+      "description": "AI agent development team. Multi-platform: frontend, backend, deployment, and beyond."
+    }
+  ]
+}
