@@ -237,8 +237,11 @@ Exception: agents are self-contained — they don't have access to CLAUDE.md at 
 ### D10. Spawn prompt — one line via skill bootstrap
 
 **DO**: verify spawn prompts follow: `"Use Skill tool: skill='ggdev:team-management', args='Bootstrap as {role}'. Then check TaskList."`
+**DO**: verify Agent tool calls use `subagent_type "general-purpose"`.
 
 **DON'T**: accept custom detailed spawn prompts with inline identity, scope, or constraints.
+**DON'T**: accept subagent_type other than "general-purpose" for team members.
+**WHY DON'T**: other subagent_type values (e.g., "frontend") load Lead agent definitions. Team members get their role via Bootstrap skill invocation, not via subagent_type.
 **WHY DON'T**: `subagent_type` does NOT load agent definitions for team members (confirmed by testing). Custom prompts miss identity/scope/constraints that role definitions provide via skill bootstrap.
 
 ### D11. Task description — file paths only
@@ -285,7 +288,7 @@ Exception: agents are self-contained — they don't have access to CLAUDE.md at 
 
 ### D17. Team workflow order
 
-**DO**: verify Lead agent follows exact order: TeamCreate → TaskCreate → Agent (spawn members) → TaskUpdate (assign owner).
+**DO**: verify Lead agent follows exact order: TeamCreate → TaskCreate → Agent (spawn members with subagent_type "general-purpose") → TaskUpdate (assign owner).
 
 **DON'T**: accept any deviation from this order.
 **WHY DON'T**: each step depends on previous. TeamCreate establishes context. Tasks auto-link. Agent joins team. TaskUpdate assigns. Wrong order breaks the chain.

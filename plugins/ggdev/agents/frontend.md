@@ -78,10 +78,14 @@ Read user message to determine inputs:
    <for-each module>
 
    <stage name="build">
-   - {module} already assigned in step 4. Wait for email-developer to complete.
-   - Assign qa-{module} to frontend-tester: output/{module}.html {image-path} specs/{module}.md output/{module}-screenshot.png output/{module}-qa.md
-   - PASS → module DONE.
-   - FAIL → assign fix-{module} to same email-developer. Re-run QA. Max 3 fix loops, then module STOPPED.
+   1. build-{module} already assigned in step 4. Wait for email-developer to complete.
+   2. Skill tool: skill="ggdev:team-management", args="TaskCreate with subject qa-{module}: output/{module}.html {image-path} specs/{module}.md output/{module}-screenshot.png output/{module}-qa.md"
+   3. Skill tool: skill="ggdev:team-management", args="Assign qa-{module} to frontend-tester."
+   4. Wait for frontend-tester to complete. Read verdict from output/{module}-qa.md.
+   5. PASS → module DONE.
+   6. FAIL → Skill tool: skill="ggdev:team-management", args="TaskCreate with subject fix-{module}-{N}: output/{module}-qa.md"
+   7. Skill tool: skill="ggdev:team-management", args="Assign fix-{module}-{N} to same email-developer."
+   8. Wait for email-developer to complete. Go to step 2. Max 3 fix loops, then module STOPPED.
    </stage>
 
    </for-each>
@@ -100,26 +104,40 @@ Read user message to determine inputs:
    <for-each module>
 
    <stage name="build">
-   - build-{module} already assigned in step 5. Wait for frontend-developer to complete.
-   - Assign qa-build-{module} to frontend-tester: output/{module}.html {image-path} specs/{module}.md specs/viewport.md output/{module}-screenshot-build.png output/{module}-qa-build.md
-   - PASS → proceed to stage responsive.
-   - FAIL → assign build-fix-{module} to same developer. Re-run QA. Max 3 fix loops, then module STOPPED.
+   1. build-{module} already assigned in step 5. Wait for frontend-developer to complete.
+   2. Skill tool: skill="ggdev:team-management", args="TaskCreate with subject qa-build-{module}: output/{module}.html {image-path} specs/{module}.md specs/viewport.md output/{module}-screenshot-build.png output/{module}-qa-build.md"
+   3. Skill tool: skill="ggdev:team-management", args="Assign qa-build-{module} to frontend-tester."
+   4. Wait for frontend-tester to complete. Read verdict from output/{module}-qa-build.md.
+   5. PASS → proceed to stage responsive.
+   6. FAIL → Skill tool: skill="ggdev:team-management", args="TaskCreate with subject build-fix-{module}-{N}: output/{module}-qa-build.md"
+   7. Skill tool: skill="ggdev:team-management", args="Assign build-fix-{module}-{N} to same frontend-developer."
+   8. Wait for frontend-developer to complete. Go to step 2. Max 3 fix loops, then module STOPPED.
    </stage>
 
    <stage name="responsive">
-   - Assign responsive-{module} to same frontend-developer: output/{module}.html specs/{module}.md specs/viewport.md
-   - Wait for frontend-developer to complete.
-   - Assign qa-responsive-{module} to frontend-tester: output/{module}.html {image-path} specs/{module}.md specs/viewport.md output/{module}-screenshot-responsive.png output/{module}-qa-responsive.md
-   - PASS → if spec has interactions, proceed to stage interactive. Else module DONE.
-   - FAIL → assign responsive-fix-{module} to same developer. Re-run QA. Max 3 fix loops, then module STOPPED.
+   1. Skill tool: skill="ggdev:team-management", args="TaskCreate with subject responsive-{module}: output/{module}.html specs/{module}.md specs/viewport.md"
+   2. Skill tool: skill="ggdev:team-management", args="Assign responsive-{module} to same frontend-developer."
+   3. Wait for frontend-developer to complete.
+   4. Skill tool: skill="ggdev:team-management", args="TaskCreate with subject qa-responsive-{module}: output/{module}.html {image-path} specs/{module}.md specs/viewport.md output/{module}-screenshot-responsive.png output/{module}-qa-responsive.md"
+   5. Skill tool: skill="ggdev:team-management", args="Assign qa-responsive-{module} to frontend-tester."
+   6. Wait for frontend-tester to complete. Read verdict from output/{module}-qa-responsive.md.
+   7. PASS → if spec has interactions, proceed to stage interactive. Else module DONE.
+   8. FAIL → Skill tool: skill="ggdev:team-management", args="TaskCreate with subject responsive-fix-{module}-{N}: output/{module}-qa-responsive.md"
+   9. Skill tool: skill="ggdev:team-management", args="Assign responsive-fix-{module}-{N} to same frontend-developer."
+   10. Wait for frontend-developer to complete. Go to step 4. Max 3 fix loops, then module STOPPED.
    </stage>
 
    <stage name="interactive">
-   - Assign interactive-{module} to same frontend-developer: output/{module}.html specs/{module}.md
-   - Wait for frontend-developer to complete.
-   - Assign qa-interactive-{module} to frontend-tester: output/{module}.html {image-path} specs/{module}.md specs/viewport.md output/{module}-screenshot-interactive.png output/{module}-qa-interactive.md
-   - PASS → module DONE.
-   - FAIL → assign interactive-fix-{module} to same developer. Re-run QA. Max 3 fix loops, then module STOPPED.
+   1. Skill tool: skill="ggdev:team-management", args="TaskCreate with subject interactive-{module}: output/{module}.html specs/{module}.md"
+   2. Skill tool: skill="ggdev:team-management", args="Assign interactive-{module} to same frontend-developer."
+   3. Wait for frontend-developer to complete.
+   4. Skill tool: skill="ggdev:team-management", args="TaskCreate with subject qa-interactive-{module}: output/{module}.html {image-path} specs/{module}.md specs/viewport.md output/{module}-screenshot-interactive.png output/{module}-qa-interactive.md"
+   5. Skill tool: skill="ggdev:team-management", args="Assign qa-interactive-{module} to frontend-tester."
+   6. Wait for frontend-tester to complete. Read verdict from output/{module}-qa-interactive.md.
+   7. PASS → module DONE.
+   8. FAIL → Skill tool: skill="ggdev:team-management", args="TaskCreate with subject interactive-fix-{module}-{N}: output/{module}-qa-interactive.md"
+   9. Skill tool: skill="ggdev:team-management", args="Assign interactive-fix-{module}-{N} to same frontend-developer."
+   10. Wait for frontend-developer to complete. Go to step 4. Max 3 fix loops, then module STOPPED.
    </stage>
 
    </for-each>

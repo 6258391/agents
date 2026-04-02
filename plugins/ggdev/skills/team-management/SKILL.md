@@ -36,13 +36,15 @@ Coordinate team lifecycle — create teams, create tasks, spawn agents, assign t
    - Input: role type and team name from invoke prompt
    - Output: members running with role definitions loaded
    - DO: determine team size from task count: 1-2 tasks = 1 agent, 3-5 = 2, 6+ = 3
-   - DO: Agent tool with team_name + name to spawn members
+   - DO: Agent tool with subagent_type "general-purpose", team_name + name to spawn members
    - DO: use exact spawn prompt: "Use Skill tool: skill='ggdev:team-management', args='Bootstrap as {role}'. Then check TaskList."
    - DON'T: write custom spawn prompts or pass role content inline. Instead, let members bootstrap via skill invoke.
    - WHY DON'T: custom prompts consume Lead tokens and miss identity/scope/constraints that role definitions provide.
+   - DON'T: use any subagent_type other than "general-purpose". Instead, always set subagent_type to "general-purpose".
+   - WHY DON'T: other subagent_type values load agent definitions (e.g., "frontend" loads the Lead agent). Team members get their role via Bootstrap skill invocation, not via subagent_type.
 
    ```
-   Agent: team_name "{team-name}", name "{role}-{i}", prompt "Use Skill tool: skill='ggdev:team-management', args='Bootstrap as {role}'. Then check TaskList."
+   Agent: subagent_type "general-purpose", team_name "{team-name}", name "{role}-{i}", prompt "Use Skill tool: skill='ggdev:team-management', args='Bootstrap as {role}'. Then check TaskList."
    ```
 
 4. **Assign**
