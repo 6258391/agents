@@ -1,0 +1,55 @@
+<!-- Section 6: Footer (HTML)
+     Wrapper: 600x692 desktop / 414x868 mobile, bg #FFFFFF, vertical
+     Sub-section A — Social media banner: 600x80 bg #083F88, absolute positioning
+       "STAY CONNECTED" Roboto 500 16px/22 #FFFFFF UPPER, at left=24 top=30
+       Icons container (Frame 10) 104x48 at left=472 top=16, 2 circle icons 48x48
+     Sub-section B — Paragraph box: 600x612, padding 24 all
+       Text: Helvetica 400 12px/16 #212121 center
+       5 inline links: Helvetica 700 12px #083F88 underline (ranges from Figma raw JSON)
+       Preserve 100% Figma text: NBSP (\xa0), narrow nbsp (\u202f), line-sep (\u2028), \n, ® , en-dash, curly quotes, SFMC tokens
+     Reference y (desktop @2x): 3884-5268 (1200x1384)
+     Source-of-truth: tools/figma_cache/2185_348.json -->
+
+<!-- Social media banner -->
+<mj-section background-color="#083F88" padding="0">
+  <mj-column padding="0" width="600px">
+    <mj-raw>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" style="width:600px;border-collapse:collapse;height:80px;">
+        <tr>
+          <td valign="top" align="left" style="padding:30px 0 30px 24px;font-family:'Roboto',Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;font-weight:500;color:#FFFFFF;text-transform:uppercase;">
+            STAY CONNECTED
+          </td>
+          <td valign="top" align="right" style="padding:16px 24px 16px 0;" width="128">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+              <tr>
+                <td valign="middle" align="center" width="48" height="48" style="width:48px;height:48px;border:2px solid #FFFFFF;border-radius:24px;">
+                  <a href="#" style="display:inline-block;text-decoration:none;line-height:0;"><!-- TODO phase 2: Facebook URL --><img src="../assets/icon-facebook.png" width="11" height="22" alt="Facebook" style="display:block;border:0;" /></a>
+                </td>
+                <td width="8" style="width:8px;font-size:0;line-height:0;">&nbsp;</td>
+                <td valign="middle" align="center" width="48" height="48" style="width:48px;height:48px;border:2px solid #FFFFFF;border-radius:24px;">
+                  <a href="#" style="display:inline-block;text-decoration:none;line-height:0;"><!-- TODO phase 2: Instagram URL --><img src="../assets/icon-instagram.png" width="24" height="24" alt="Instagram" style="display:block;border:0;" /></a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </mj-raw>
+  </mj-column>
+</mj-section>
+
+<!-- Paragraph box -->
+<mj-section background-color="#FFFFFF" padding="24px 24px 24px 24px">
+  <mj-column padding="0">
+    <mj-text
+      align="center"
+      color="#212121"
+      font-family="Helvetica, Arial, sans-serif"
+      font-size="12px"
+      line-height="16px"
+      font-weight="400"
+      padding="0">
+      *At participating Honda Marine dealers only. Qualified retail customers may receive savings off the selling price of a Honda powered boat package or Honda Marine engine(s) sold for repower. This promotion is limited to new Honda Marine BF40–BF350 outboard engines, 2021 and newer models, in stock, sold and delivered between January 5, 2026, and April 30, 2026, delivered to a US resident. May be combined with certain other promotions. Only Honda Marine outboard engines sold for personal use qualify for this promotion. Fleet, rental, commercial, and government sales, demo engines, and engines sold under special pricing/promotions including (but not limited to) guides, brand ambassadors, and tournament&nbsp;fishermen&nbsp;are ineligible. Dealers set their own pricing. Actual contract&nbsp;coverages, limitations, and exclusions may vary.&nbsp;HondaCare&nbsp;Protection Plan®&nbsp;not&nbsp;available in South Carolina. 36-month&nbsp;HondaCare&nbsp;Protection Plan® does not apply to the M300 model. Honda Marine reserves the right to&nbsp;modify, amend,&nbsp;cancel&nbsp;or revoke, in whole or in part, this promotion at any time without prior notice. All Honda outboards meet EPA and CARB emission levels. Always wear a personal flotation device while boating and&nbsp;read&nbsp;your owner’s manual.<br><br>Please do not reply to this email directly.<br><br>© %%=format(Now(),"yyyy")=American Honda Motor Co., Inc. ("AHM"). Allinformation&nbsp;contained&nbsp;herein&nbsp;applies only to products and services sold in the U.S. See our&nbsp;<a href="#" style="color:#083F88;font-weight:700;text-decoration:underline;"><!-- TODO phase 2: Privacy Notice URL -->Privacy Notice</a>.<br><br>You have received this marketing email from&nbsp;a division&nbsp;of AHM. You may change your email interest preferences by logging into your&nbsp;<a href="#" style="color:#083F88;font-weight:700;text-decoration:underline;"><!-- TODO phase 2: MyGarage account URL -->MyGarage&nbsp;account</a>.&nbsp;(Product ownership&nbsp;is not required to&nbsp;have an&nbsp;account.)<br><br>Select one of the links below to unsubscribe your email address from receiving marketing emails:&#8239;&nbsp;<br><a href="#" style="color:#083F88;font-weight:700;text-decoration:underline;"><!-- TODO phase 2: Unsubscribe emails URL -->Unsubscribe from emails like these</a>&nbsp;-&nbsp;Brand/Division only, not all AHM.&#8239;&nbsp;<br><a href="#" style="color:#083F88;font-weight:700;text-decoration:underline;"><!-- TODO phase 2: Unsubscribe All AHM URL -->Unsubscribe from All AHM</a>&nbsp;-&nbsp;All marketing emails from AHM.&nbsp;NOTE: Unsubscribing from all AHM Family of Brands includes emails from: Honda Auto Sales, Honda Auto Service, Acura Sales, Acura Service, Honda Powersports, Honda Power Equipment, Honda Marine, Honda Engines, Honda Insurance Solutions, etc.<br><br><a href="#" style="color:#083F88;font-weight:700;text-decoration:underline;"><!-- TODO phase 2: Contact us URL -->Contact us</a>.&nbsp;Or you may write to us at:&#8239;&nbsp;<br>American Honda Motor Co., Inc.&#8239;&nbsp;<br>Att: Customer Service – Unsubscribe&#8239;&nbsp;<br>Mail Stop: CHI-5&#8239;&nbsp;<br>1919 Torrance Blvd.&#8239;&nbsp;<br>Torrance, CA 90501-2746, U.S.<br><br>Reference: %%CAMPAIGNCODE%%-%%OFFERCODE%%&#8239;&#8239;&nbsp;
+    </mj-text>
+  </mj-column>
+</mj-section>

@@ -1,0 +1,13 @@
+<!-- Section 5: Gallery (PNG)
+     Display 600x306, @2x 1200x612
+     Extracted từ ref (R10)
+     Reference y: 3272-3884 @2x desktop -->
+<mj-section padding="0" background-color="#FFFFFF">
+  <mj-column>
+    <mj-image
+      src="../assets/gallery.png"
+      alt="Honda Marine BF150"
+      width="600px"
+      padding="0" />
+  </mj-column>
+</mj-section>

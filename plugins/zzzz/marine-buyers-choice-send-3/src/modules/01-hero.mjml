@@ -1,0 +1,14 @@
+<!-- Section 1: Hero (PNG)
+     Display 600x741, Asset 1200x1482 @2x
+     Extracted từ ref Design 3 (R10) pixel-perfect
+     Includes Marine Logo (grouped Marine Header vào Frame 1)
+     Reference y: 64-1546 @2x desktop -->
+<mj-section padding="0" background-color="#FFFFFF">
+  <mj-column>
+    <mj-image
+      src="../assets/hero.png"
+      alt="Honda Marine Buyer's Choice Sales Event"
+      width="600px"
+      padding="0" />
+  </mj-column>
+</mj-section>

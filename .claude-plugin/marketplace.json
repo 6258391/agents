@@ -8,6 +8,11 @@
       "name": "ggdev",
       "source": "./plugins/ggdev",
       "description": "AI agent development team. Multi-platform: frontend, backend, deployment, and beyond."
+    },
+    {
+      "name": "frontend",
+      "source": "./plugins/frontend",
+      "description": "Help agents work together to create and refine frontend."
     }
   ]
 }

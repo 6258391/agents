@@ -1,0 +1,9 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "description": "Help agents work together to create and refine frontend.",
+  "author": {
+    "name": "Tien Nguyen"
+  },
+  "license": "MIT"
+}

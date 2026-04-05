@@ -1,0 +1,9 @@
+{
+  "name": "mail-dev",
+  "version": "0.1.0",
+  "description": "Develop emails from design files.",
+  "author": {
+    "name": "Tien Nguyen"
+  },
+  "license": "MIT"
+}

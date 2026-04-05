@@ -1,0 +1,15 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./_head.mjml" />
+  </mj-head>
+
+  <mj-body width="600px" background-color="#FFFFFF">
+    <mj-include path="./modules/00-view-online.mjml" />
+    <mj-include path="./modules/01-hero.mjml" />
+    <mj-include path="./modules/02-body.mjml" />
+    <mj-include path="./modules/03-blue-art.mjml" />
+    <mj-include path="./modules/04-cta.mjml" />
+    <mj-include path="./modules/05-gallery.mjml" />
+    <!-- <mj-include path="./modules/06-footer.mjml" /> -->  <!-- Agent A WIP -->
+  </mj-body>
+</mjml>

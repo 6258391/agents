@@ -1,0 +1,13 @@
+<!-- Section 3: Blue art (PNG)
+     Display 600x420, @2x 1200x840
+     Extracted từ ref (R10)
+     Reference y: 2070-2910 @2x desktop -->
+<mj-section padding="0" background-color="#FFFFFF">
+  <mj-column>
+    <mj-image
+      src="../assets/blue-art.png"
+      alt="Up to $10,000 instant savings or additional HondaCare coverage"
+      width="600px"
+      padding="0" />
+  </mj-column>
+</mj-section>

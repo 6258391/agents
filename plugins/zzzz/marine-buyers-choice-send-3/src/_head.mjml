@@ -1,0 +1,30 @@
+<!-- Shared mj-head contents. Include trong email.mjml và tất cả test-harnesses.
+     KHÔNG wrap trong <mj-head> tag — chỉ các element con. -->
+
+<mj-title>Honda Marine Buyer's Choice — Last Call</mj-title>
+<mj-preview>Last call to save! Our Honda Marine Buyer's Choice Sales Event is setting sail soon, but not just yet!</mj-preview>
+
+<mj-raw>
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+</mj-raw>
+
+<mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" />
+
+<mj-attributes>
+  <mj-all font-family="Helvetica, Arial, sans-serif" />
+  <mj-body background-color="#FFFFFF" />
+</mj-attributes>
+
+<mj-style>
+  :root { color-scheme: light dark; supported-color-schemes: light dark; }
+  .view-online a { color: #FFFFFF !important; text-decoration: underline !important; }
+  @media only screen and (max-width: 480px) {
+    .view-online-td {
+      font-size: 10px !important;
+      line-height: 10px !important;
+      padding-top: 7px !important;
+      padding-bottom: 7px !important;
+    }
+  }
+</mj-style>

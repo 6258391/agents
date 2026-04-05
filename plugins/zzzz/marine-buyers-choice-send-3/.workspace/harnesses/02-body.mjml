@@ -1,0 +1,6 @@
+<mjml>
+  <mj-head><mj-include path="../../src/_head.mjml" /></mj-head>
+  <mj-body width="600px" background-color="#FFFFFF">
+    <mj-include path="../../src/modules/02-body.mjml" />
+  </mj-body>
+</mjml>

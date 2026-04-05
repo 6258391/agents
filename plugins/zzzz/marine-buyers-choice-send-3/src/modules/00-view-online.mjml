@@ -1,0 +1,20 @@
+<!-- Section 0: View Online bar
+     Desktop: 600x32, Mobile: 414x24 (font/padding qua media query in mj-head)
+     Background: #083F88 (Honda blue)
+     Text right-aligned, padding-right 24px
+     Reference y: 0-64 @2x (desktop), 0-48 @2x (mobile) -->
+<mj-section background-color="#083F88" padding="0">
+  <mj-column>
+    <mj-text
+      css-class="view-online view-online-td"
+      align="right"
+      padding="10px 24px 10px 24px"
+      color="#FFFFFF"
+      font-family="'Roboto', Helvetica, Arial, sans-serif"
+      font-weight="500"
+      font-size="12px"
+      line-height="12px">
+      <a href="#" style="color:#FFFFFF;text-decoration:underline;">View Online</a><!-- TODO phase 2: view-in-browser URL -->
+    </mj-text>
+  </mj-column>
+</mj-section>

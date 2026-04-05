@@ -1,0 +1,91 @@
+<!-- Section 4: 2-col CTA (HTML)
+     Wrapper: 600x181 desktop / 414x208 mobile, bg #D4E5F9, padding 24 all, gap 16 vertical
+     Frame 7 inside: 552x133 horizontal, gap 16 giữa 2 cards
+     Mỗi card: 268x133 desktop / 175x160 mobile, bg #FFFFFF, radius 4, padding 16, SPACE_BETWEEN
+     Heading VERTICAL: icon 24 top, gap 12, text Roboto 700 17px #212121 (letter-spacing -0.15px bridge font engine width)
+     Button link HORIZONTAL: text Roboto 700 14px #083F88 UPPER, gap 8, arrow 24
+     Mobile giữ 2-col (approved)
+     Dùng mj-raw để kiểm soát table chính xác
+     Reference y: 2910-3272 @2x desktop -->
+<mj-section background-color="#D4E5F9" padding="24px 24px 24px 24px">
+  <mj-column padding="0">
+    <mj-raw>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;">
+        <tr>
+          <!-- Card 1: Find a Dealer -->
+          <td valign="top" width="268" style="width:268px;background-color:#FFFFFF;border-radius:4px;padding:16px;font-family:'Roboto',Helvetica,Arial,sans-serif;">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;height:101px;">
+              <tr>
+                <td valign="top" style="padding:0;">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                    <tr>
+                      <td style="padding:0 0 12px 0;">
+                        <img src="../assets/icon-search.png" width="24" height="24" alt="" style="display:block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-family:'Roboto',Helvetica,Arial,sans-serif;font-size:17px;line-height:22px;font-weight:700;color:#212121;letter-spacing:-0.15px;">
+                        Find a Dealer&nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td valign="bottom" style="padding:0;">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                    <tr>
+                      <td valign="middle" style="padding:5px 8px 5px 0;font-family:'Roboto',Helvetica,Arial,sans-serif;font-size:14px;line-height:14px;font-weight:700;color:#083F88;text-transform:uppercase;">
+                        <a href="#" style="color:#083F88;text-decoration:none;">Locate&nbsp;</a><!-- TODO phase 2: dealer locator URL -->
+                      </td>
+                      <td valign="middle" style="width:24px;">
+                        <img src="../assets/icon-arrow-right.png" width="24" height="24" alt="" style="display:block;" />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <!-- Gap 16 -->
+          <td width="16" style="width:16px;font-size:0;line-height:0;">&nbsp;</td>
+          <!-- Card 2: Learn More About HondaCare -->
+          <td valign="top" width="268" style="width:268px;background-color:#FFFFFF;border-radius:4px;padding:16px;font-family:'Roboto',Helvetica,Arial,sans-serif;">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;height:101px;">
+              <tr>
+                <td valign="top" style="padding:0;">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                    <tr>
+                      <td style="padding:0 0 12px 0;">
+                        <img src="../assets/icon-shield.png" width="24" height="24" alt="" style="display:block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-family:'Roboto',Helvetica,Arial,sans-serif;font-size:17px;line-height:22px;font-weight:700;color:#212121;letter-spacing:-0.15px;">
+                        Learn More About HondaCare®
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td valign="bottom" style="padding:0;">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                    <tr>
+                      <td valign="middle" style="padding:5px 8px 5px 0;font-family:'Roboto',Helvetica,Arial,sans-serif;font-size:14px;line-height:14px;font-weight:700;color:#083F88;text-transform:uppercase;">
+                        <a href="#" style="color:#083F88;text-decoration:none;">learn more</a><!-- TODO phase 2: HondaCare URL -->
+                      </td>
+                      <td valign="middle" style="width:24px;">
+                        <img src="../assets/icon-arrow-right.png" width="24" height="24" alt="" style="display:block;" />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </mj-raw>
+  </mj-column>
+</mj-section>
