@@ -1,0 +1,19 @@
+---
+name: extract-figma
+description: "Fetch Figma node data. Download design assets. Return structured specs."
+allowed-tools: [Bash]
+---
+
+## Steps
+
+1. Receive the Figma URL and free-text extraction requirements from the parent agent. DON'T: prompt the user directly for inputs — the parent agent already collected them. WHY: skills are invoked by agents, not users — prompting the user breaks the agent's control flow.
+2. Parse the Figma URL to extract the file key and any node IDs embedded in the URL path or query parameters. DON'T: ask the caller to provide file key and node IDs separately. WHY: the URL already contains these values — requiring them separately forces the caller to do parsing work the skill should own.
+3. Interpret the free-text requirements to determine: which nodes to extract, which export formats to use (PNG, SVG, or both), export scale (1x, 2x, 3x), whether to extract text content, color values, spacing, and dimensions. DON'T: ignore requirements and extract everything by default. WHY: extracting everything wastes API calls and produces noise — the caller specified what they need, respect that scope.
+4. Run `extract-figma.sh tree {file_key}` to fetch the full node tree from Figma REST API (`GET /v1/files/{file_key}`). DON'T: fetch individual nodes one by one when the full tree is needed. WHY: one API call for the tree is faster and cheaper than N calls for N nodes — Figma rate-limits per token.
+5. Filter the node tree response to only the nodes matching the extraction requirements (specific node IDs, or all visible nodes if no specific IDs were requested). DON'T: process hidden or locked layers unless requirements explicitly ask for them. WHY: hidden layers are design artifacts, not deliverables — including them pollutes the output with content the designer intentionally excluded.
+6. For each matching node, extract the layout structure: frame name, position (x, y), dimensions (width, height), and parent-child hierarchy. DON'T: flatten the hierarchy into a single list. WHY: parent-child relationships encode grouping and nesting intent — losing hierarchy forces the consumer to guess which elements belong together.
+7. For each matching node, extract style properties: fill colors (hex + opacity), stroke colors, font family, font size, font weight, line height, letter spacing, border radius, and padding. DON'T: skip properties not present — record them as absent explicitly. WHY: an absent property and an unextracted property look identical in the output — explicit absence prevents the consumer from assuming a value exists but was missed.
+8. Run `extract-figma.sh images {file_key} {node_ids} {format} {scale}` to request image export URLs from Figma Image API (`GET /v1/images/{file_key}`). DON'T: download assets before filtering nodes — only export nodes that passed the filter. WHY: exporting unfiltered nodes downloads unused assets, wastes bandwidth, and clutters the assets folder.
+9. For each image URL returned, run `extract-figma.sh download {url} ./assets/{node-name-kebab}.{format}` to download the asset to local `assets/` folder. DON'T: use node IDs as filenames. WHY: node IDs are opaque strings — kebab-case node names make assets human-browsable without cross-referencing the specs.
+10. Write the structured specs to a markdown file with sections: overview (page name, frame count, total nodes), node hierarchy (indented list), per-node specs (dimensions, styles, content), and asset manifest (filename to node mapping). DON'T: output raw JSON from the API response. WHY: markdown is readable by both humans and agents — raw JSON requires parsing before any consumer can use it.
+11. Return the markdown specs file path and assets folder path to the parent agent. DON'T: return the raw API response or inline the specs content. WHY: file paths let the consumer read on demand — inlining large specs into the return value bloats agent context with content it may not need immediately.

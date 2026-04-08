@@ -1,0 +1,9 @@
+{
+  "name": "craft",
+  "version": "1.0.0",
+  "description": "Scaffold new plugins. Validate file structure. Score content quality.",
+  "author": {
+    "name": "craft-contributors"
+  },
+  "license": "MIT"
+}

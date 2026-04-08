@@ -1,0 +1,6 @@
+{
+  "name": "mail",
+  "version": "0.1.0",
+  "description": "Email production plugin. Convert Figma designs to responsive HTML emails using MJML.",
+  "license": "MIT"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "agents2",
+  "owner": {
+    "name": "Tien Nguyen"
+  },
+  "plugins": [
+    {
+      "name": "craft",
+      "source": "./plugins/craft",
+      "description": "Scaffold new plugins. Validate file structure. Score content quality."
+    },
+    {
+      "name": "mail",
+      "source": "./plugins/mail",
+      "description": "Email production plugin. Convert Figma designs to responsive HTML emails using MJML."
+    }
+  ]
+}
