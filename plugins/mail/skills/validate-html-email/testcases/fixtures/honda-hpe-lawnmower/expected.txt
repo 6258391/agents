@@ -1,0 +1,39 @@
+file:    {FIXTURE}
+profile: honda
+verdict: PENDING (0 pending, 4 skipped, 25 pass)
+
+## checks
+
+[-] R1.1 DON'T ship preview text that drifts from the copy deck. Instead match the approved copy with only padding entities after it. WHY preview text is the first line recipients read and copy review signs off on exact wording
+    skipped: needs --preview-text
+[x] R1.2 DON'T ship HTML with unbalanced tags or Outlook conditionals. Instead close every opened tag and every if mso block. WHY unbalanced markup breaks rendering in strict clients
+[x] R1.3 DON'T leave %25 in URLs. Instead use %% AMPScript tokens directly. WHY double percent encoding breaks SFMC link resolution
+[x] R1.4 DON'T use relative image sources. Instead set every img src and background url to an absolute https URL. WHY email clients have no base URL and relative paths break image rendering
+[x] R1.5 DON'T ship partial dark mode configuration. Instead add both color-scheme and supported-color-schemes meta tags plus the root CSS block. WHY partial config leaves some clients in light-only mode
+[x] R1.6 DON'T leave multiline or singleline template tags in compiled HTML. Instead strip those tags before export. WHY SFMC interprets them as content editors and corrupts rendering
+[x] R1.7 DON'T ship tags with duplicate attributes. Instead keep each attribute only once per tag. WHY duplicate attrs produce undefined parser behavior across clients
+[x] R1.8 DON'T reference Gravity staging hosts in production HTML. Instead replace carbon8 and emailassets links with production URLs. WHY staging hosts are not guaranteed reachable from recipient networks
+[x] R1.9 DON'T leave Marketo classes attributes or template tokens in compiled HTML. Instead remove mkto markers and dollar brace placeholders. WHY SFMC does not resolve Marketo syntax and the tokens ship as literal text
+[x] R1.10 DON'T let URLs contain spaces double ampersands or repeated question marks. Instead encode or sanitize those characters. WHY unclean URLs break tracking and redirects at SFMC
+[-] R1.11 DON'T let the title tag drift from the copy deck. Instead match the title content to the approved copy. WHY the title appears in browser tabs and accessibility readers
+    skipped: needs --title-text
+[x] R1.12 DON'T skip the Outlook OfficeDocumentSettings block. Instead add the AllowPNG and PixelsPerInch 96 xml block in head. WHY Outlook downscales images without this block
+[x] R1.13 DON'T leave the Litmus tracking pixel in production HTML. Instead remove any emltrk domain references before send. WHY Litmus pixels are for QA previews and skew production analytics
+[x] H1.1 DON'T hardcode year values in footer text. Instead use the AMPScript format Now yyyy token. WHY hardcoded years ship stale content after calendar rollover
+[x] H1.2 DON'T omit the SFMC open counter custom tag. Instead include exactly one opencounter tracking tag outside comments. WHY SFMC needs the tag to record opens
+[x] H1.3 DON'T ship links without alias attributes or with duplicate aliases. Instead set a unique alias on every non whitelist anchor. WHY SFMC link tracking aggregates by alias and duplicates merge metrics
+[-] H1.4 DON'T let alias drift from campaign code. Instead prefix every alias with the campaign code. WHY SFMC groups tracking by alias prefix
+    skipped: needs --campaign-code
+[x] H1.5 DON'T skip the view in browser link. Instead include an anchor with href set to the SFMC view_email_url token. WHY recipients on buggy clients need a web fallback
+[x] H1.6 DON'T remove the legacy CUSTOM AMPSCRIPT encode block. Instead keep the Base64Encode email and recipientID block intact. WHY the profile center URL breaks without those variables
+[x] H1.7 DON'T omit the OneTrust opt-out AMPScript block. Instead include the CloudPagesUrl block that matches the detected mail type. WHY OneTrust compliance requires the correct page URL per brand
+[x] H1.8 DON'T ship tracked links without pgrcd cmpcd and ofrcd params. Instead append the 3 AMPScript tokens to every non whitelist link. WHY attribution reports key on those 3 params
+[x] H1.9 DON'T alter the Honda physical address or copyright format. Instead include the exact American Honda Motor Co address block and the AHM copyright line. WHY legal and CAN-SPAM review accepts only the approved wording
+[x] H1.10 DON'T show the default SFMC profile center link. Instead hide it with the approved span block and Member variables. WHY SFMC requires a physical address block even when the built in profile center is unused
+[x] H1.11 DON'T leave external links without a new tab target. Instead set target blank on every non whitelist non honda anchor. WHY inline navigation inside webmail clients breaks the reading context
+[-] H1.12 DON'T let link cid query params drift from the campaign CID. Instead set cid equal to the campaign CID on every non whitelist link. WHY attribution pipelines join on cid
+    skipped: needs --cid
+[x] H1.13 DON'T omit the Reference campaign code line in body text. Instead include the Reference CAMPAIGNCODE OFFERCODE line outside comments. WHY support teams trace incidents by the reference line in forwarded emails
+[x] H1.14 DON'T use campaign codes or preference CIDs that break the approved format. Instead match the X0N dash Y0N pattern with matching numeric segments. WHY attribution parsers reject off format codes
+[x] H1.15 DON'T ship without a detectable Honda mail type or with cross-brand mentions. Instead include alias links for one brand and exclude text from the others. WHY cross-brand leaks violate OneTrust audience segmentation
+[x] H1.16 DON'T ship without both OptOut this type and OptOut all link alias pairs. Instead include the RedirectTo pageURL and pageURLALL pair with matching aliases. WHY SFMC requires both opt out paths for OneTrust compliance
