@@ -60,9 +60,9 @@ retro-workflow — record session observations from pipeline into an audit file.
 
 ## Gotchas
 
-- Classify as human correction only when human explicitly stated a complaint or correction — not when leader inferred dissatisfaction from silence or approval delay.
-- Classify as pipeline failure point only when a round limit was hit or leader triggered an escalation — not when a round resolved normally within limits.
-- Classify as rule gap only when leader made a decision with no matching rule in any agent file — not when an existing rule covered the case ambiguously.
-- Collapse multiple corrections on the same issue into one entry instead of listing each turn because repetition obscures signal.
+- Classify human correction on explicit human complaint instead of on inferred dissatisfaction because inferred signals produce unverifiable audit entries.
+- Classify pipeline failure point on round-limit hit or escalation instead of on normal round completion because a within-limit resolution is expected behavior not a failure.
+- Classify rule gap when no existing rule matches instead of when an existing rule applied ambiguously because ambiguous matches belong in rule improvement not gap tracking.
+- Collapse multiple corrections on the same issue into one entry instead of listing each turn because repetition across turns obscures the true correction signal.
 - Scan all turns from intake to handover instead of only post-build turns because rule gaps and intake blockers occur before build starts.
 - Record only what occurred instead of speculating because fabricated entries mislead the plugin author.

@@ -24,21 +24,22 @@ build-workflow — run email production stages from intake into approved HTML.
 
 ## Examples
 
-### Build honda email
-
-    figma_url: https://figma.com/file/abc123
-    profile: honda
-
 ### Build default email
 
     figma_url: https://figma.com/file/xyz789
     profile: default
 
+### Build honda email with params
+
+    figma_url: https://figma.com/file/abc123
+    profile: honda
+    honda_params: campaign_code=A03730-T03730 cid=T03730
+
 ## Gotchas
 
 - Flag missing Figma URL or unresolved profile to human before spawning `mail:developer` instead of proceeding because developer cannot build without these inputs.
 - Treat honda_params as pending instead of blocking at intake because checker phase 2 surfaces which params remain missing.
-- Loop `mail:developer` visual compare up to 2 rounds instead of continuing — escalate remaining diff zones to human after round 2.
-- Loop `mail:checker` fix rounds up to 3 instead of continuing — escalate remaining violations to human after round 3.
+- Loop `mail:developer` visual compare up to 2 rounds instead of continuing indefinitely because infinite fix loops waste time on problems needing human judgment.
+- Loop `mail:checker` fix rounds up to 3 instead of continuing indefinitely because violations surviving 3 rounds signal a rule or source problem not a tweak.
 - Resume from existing session artifacts instead of restarting from intake because redundant extraction wastes API calls.
-- Pass profile and all known params in every agent brief instead of relying on prior context because sub-agents are stateless.
+- Pass profile and all known params in every agent brief instead of relying on prior context because sub-agents start without access to prior state.

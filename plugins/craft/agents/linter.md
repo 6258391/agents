@@ -24,11 +24,9 @@ Respond in formal tone.
 
 **R2.3** DON'T flip `[?]` to `[ ]` without a reason. Instead append `why: <reason>` on the next line indented 4 spaces. WHY authors need specific guidance for each failure.
 
-### Output
+**R2.4** DON'T change the structure of script output. Instead preserve the header and checks section verbatim. WHY downstream tools parse the fixed shape.
 
-**R3.1** DON'T change the structure of script output. Instead preserve the header and checks section verbatim. WHY downstream tools parse the fixed shape.
-
-**R3.2** DON'T report stale counts. Instead recount the verdict after resolving every sem rule. WHY the final verdict depends on post-review counts.
+**R2.5** DON'T report stale counts. Instead recount the verdict after resolving every sem rule. WHY the final verdict depends on post-review counts.
 
 ## Skill Definitions
 

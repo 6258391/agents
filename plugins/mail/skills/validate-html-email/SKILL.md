@@ -20,10 +20,10 @@ validate-html-email — check compiled email html into rule compliance checklist
 |------|----------|---------|-------------|
 | HTML_PATH | yes | — | Path to compiled HTML file |
 | PROFILE | yes | — | Rule profile name |
-| --campaign-code | no | empty | Campaign code prefix for alias check |
-| --cid | no | empty | CID value for link query check |
-| --preview-text | no | empty | Preview text copied from brief |
-| --title-text | no | empty | Title text copied from brief |
+| --campaign-code | no | skip | Campaign code prefix for alias check |
+| --cid | no | skip | CID value for link query check |
+| --preview-text | no | skip | Preview text copied from brief |
+| --title-text | no | skip | Title text copied from brief |
 
 ## Examples
 

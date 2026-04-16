@@ -39,5 +39,5 @@ compile-mjml.sh ./templates/welcome.mjml ./build/welcome-2026-04.html
 - Invoke `compile-mjml.sh` instead of the `mjml` CLI because the wrapper handles output naming consistently.
 - Check the script exit code instead of trusting stdout because MJML returns 0 on warnings but non-zero means no HTML was produced.
 - Return the HTML file path instead of inlining content because compiled email HTML bloats agent context.
-- Read the JSON facts on stderr alongside the path on stdout because those facts let the caller verify compile correctness without re-reading the HTML.
-- Treat exit 1 with stderr `npx mjml failed; no HTML produced` as a missing output file because MJML may exit 0 with warnings yet produce nothing.
+- Read the JSON facts on stderr alongside the path on stdout instead of re-reading the HTML because those facts let the caller verify compile correctness directly.
+- Treat exit 1 with stderr `npx mjml failed; no HTML produced` as a missing file instead of a recoverable warning because the message means no HTML was written.
