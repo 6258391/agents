@@ -47,6 +47,6 @@ compare-screenshot.sh diff ./email-screenshot.png ./assets/hero.png
 ## Gotchas
 
 - Set viewport to reference dimensions instead of a default like 1280x800 because size difference produces false diffs on every pixel row.
-- Read `zones[]` from the diff JSON instead of acting on `total_diff_pct` alone because each zone carries geometric and photometric fields (`area`, `aspect_ratio`, `diff_pct`, `avg_luma_shift`, `non_white_pct`) that let the caller distinguish image tone shift from layout shift.
-- Treat a stderr `WARNING: ref ... != shot ...` as evidence of wrong capture viewport because the script resizes the ref to match the shot and the resized diff will mislead.
+- Read `zones[]` from the diff JSON instead of acting on `total_diff_pct` alone because each zone's geometric and photometric fields distinguish image tone shift from layout shift.
+- Treat a stderr `WARNING: ref ... != shot ...` as wrong capture viewport instead of benign because the script resizes ref to shot producing a misleading diff.
 - Return the diff PNG and diff JSON paths instead of inlining content because the annotated image is binary and the zones JSON grows long.

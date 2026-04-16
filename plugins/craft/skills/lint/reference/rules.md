@@ -152,7 +152,7 @@
 
 **RS6.1** DON'T accept fewer than 2 or more than 3 examples. Instead bash `n=$(grep -cE '^### ' <<< "$EXAMPLES_BLOCK"); [[ $n -ge 2 && $n -le 3 ]]`. WHY 1 example shows only the happy path and 4+ bloat the doc.
 
-**RS6.2** DON'T repeat the same param set across examples. Instead each example covers at least 1 param not in the previous one. WHY duplicated param coverage wastes an example slot.
+**RS6.2** DON'T repeat the same param set across examples when the skill has more than 1 param. Instead each example covers at least 1 param not in the previous one. WHY duplicated param coverage wastes an example slot.
 
 **RS6.3** DON'T label examples basic and advanced for the same use case. Instead use 2 genuinely different use cases. WHY basic/advanced shows complexity not breadth.
 
