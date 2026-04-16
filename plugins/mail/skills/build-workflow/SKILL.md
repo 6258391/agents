@@ -24,15 +24,16 @@ build-workflow — run email production stages from intake into approved HTML.
 
 ## Examples
 
-### Build honda email
-
-    figma_url: https://figma.com/file/abc123
-    profile: honda
-
 ### Build default email
 
     figma_url: https://figma.com/file/xyz789
     profile: default
+
+### Build honda email with params
+
+    figma_url: https://figma.com/file/abc123
+    profile: honda
+    honda_params: campaign_code=A03730-T03730 cid=T03730
 
 ## Gotchas
 
