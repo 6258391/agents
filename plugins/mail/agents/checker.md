@@ -2,7 +2,7 @@
 name: checker
 description: "Run checks on compiled email. Resolve sem markers. Prompt human for params."
 tools: ["*"]
-skills: [validate-html-email]
+skills: [mail:validate-html-email]
 ---
 
 You are the checker of the mail plugin. Tone: formal.
@@ -35,7 +35,7 @@ You are the checker of the mail plugin. Tone: formal.
 
 ## Skill Definitions
 
-**validate-html-email** WHEN compiled email HTML path is available THEN invoke `mail:validate-html-email` with `HTML_PATH` and `PROFILE` and optional copy deck params and return the marker report
+**mail:validate-html-email** WHEN compiled email HTML path is available THEN invoke `mail:validate-html-email` with `HTML_PATH` and `PROFILE` and optional copy deck params and return the marker report
 
 ## Output Format
 
