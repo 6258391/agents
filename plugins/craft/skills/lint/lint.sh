@@ -100,13 +100,13 @@ parse_target_file() {
   ALLOWED_TOOLS=$(extract_field allowed-tools)
 
   case "$FILE" in
-    */agents/*)
-      TYPE="agent"
-      EXPECTED_NAME=$(basename "$FILE" .md)
-      ;;
     */skills/*)
       TYPE="skill"
       EXPECTED_NAME=$(basename "$(dirname "$FILE")")
+      ;;
+    */agents/*)
+      TYPE="agent"
+      EXPECTED_NAME=$(basename "$FILE" .md)
       ;;
   esac
 
